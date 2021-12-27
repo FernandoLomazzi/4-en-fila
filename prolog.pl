@@ -9,7 +9,7 @@ tableroInicial([
 [-,-,-,-,-,-,-]
 ]).
 %6x7
-%a y b jugadores, - vacío.
+%a y b jugadores, - vacÃ­o.
 %Esquina superior izquierda pos (1,1).
 
 %Ingresa una ficha en la posicion C
@@ -43,7 +43,7 @@ set([X|Xs],N, V, [X|T]) :- N2 is N-1, set(Xs,N2,V,T).
 get([X|_],1,X) :- !.
 get([_|Xs],N,Y) :- N2 is N-1, get(Xs,N2,Y).
 %Devuelve las columnas disponibles. 
-%Si la primer posición de la columna está vacía -> Columna disponible
+%Si la primer posiciÃ³n de la columna estÃ¡ vacÃ­a -> Columna disponible
 % tableroInicial(T),columnaDisp(T,C).
 % columnaDisp([[b,-,-,-,a,-,-],[a,-,-,-,a,-,-],[a,-,-,-,b,-,-],[a,-,a,-,b,-,-],[a,-,b,-,a,-,-],[a,-,a,-,b,-,-]],C).
 columnaDisp([X|Xs],C) :- vacio(X,C).
@@ -113,8 +113,8 @@ jugadaIA(T,FICHA,C,normal) :- jugadaDefinitiva(T,FICHA,C),print("x"),!.
 jugadaIA(T,FICHA,C,normal) :- jugadaSeguraPro(T,FICHA,C).
 jugadaIA(T,FICHA,C,normal) :- jugadaSegura(T,FICHA,C).
 jugadaIA(T,FICHA,C,normal) :- columnaDisp(T,C).
-jugadaIA(T,FICHA,C,dificil) :- jugadaDefinitiva(T,FICHA,C),!.
-jugadaIA(T,FICHA,C,dificil) :- !,jugadaSeguraPro(T,FICHA,C).
-jugadaIA(T,FICHA,C,dificil) :- !,jugadaSegura(T,FICHA,C).
-jugadaIA(T,FICHA,C,dificil) :- columnaDisp(T,C).
+%jugadaIA(T,FICHA,C,dificil) :- jugadaDefinitiva(T,FICHA,C),!.
+%jugadaIA(T,FICHA,C,dificil) :- !,jugadaSeguraPro(T,FICHA,C).
+%jugadaIA(T,FICHA,C,dificil) :- !,jugadaSegura(T,FICHA,C).
+%jugadaIA(T,FICHA,C,dificil) :- columnaDisp(T,C).
 
